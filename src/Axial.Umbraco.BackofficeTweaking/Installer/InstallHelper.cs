@@ -3,11 +3,11 @@ using System.Web;
 using System.Web.Hosting;
 using System.Xml;
 
-namespace Axial.Umbraco.BackofficeTweaking.Installer
+namespace Axial.Umbraco.PropertyAccess.Installer
 {
     public class InstallHelper
     {
-        private const string APPKEY_TOUCHEDON = "BackofficeTweaking:Installed";
+        private const string APPKEY_TOUCHEDON = "PropertyAccess:Installed";
 
         public void AddAppSetting()
         {
@@ -84,21 +84,21 @@ namespace Axial.Umbraco.BackofficeTweaking.Installer
             string filename = HostingEnvironment.MapPath(virtualPath);
             XmlDocument xmlDocument = new XmlDocument();
             xmlDocument.Load(filename);
-            if (xmlDocument.SelectSingleNode("//section [@alias='BackofficeTweakingDashboardSection']") == null)
+            if (xmlDocument.SelectSingleNode("//section [@alias='PropertyAccessDashboardSection']") == null)
             {
                 // XML for adding Dashboard
-                //<section alias="BackofficeTweakingDashboardSection">
+                //<section alias="PropertyAccessDashboardSection">
                 //  <areas>
                 //    <area>developer</area>
                 //  </areas>
                 //  <tab caption="Backoffice Tweaking">
                 //    <control showOnce="false" addPanel="true" panelCaption="">
-                //        /App_Plugins/BackofficeTweaking/Dashboard/backofficetweaking.dashboard.html
+                //        /App_Plugins/PropertyAccess/Dashboard/propertyaccess.dashboard.html
                 //    </control>
                 //  </tab>
                 //</section>  
 
-                string xml = "<section alias=\"BackofficeTweakingDashboardSection\"><areas><area>developer</area></areas><tab caption=\"Backoffice Tweaking\"><control showOnce=\"false\" addPanel=\"true\" panelCaption=\"\">/App_Plugins/BackofficeTweaking/Dashboard/backofficetweaking.dashboard.html</control></tab></section>";
+                string xml = "<section alias=\"PropertyAccessDashboardSection\"><areas><area>developer</area></areas><tab caption=\"Backoffice Tweaking\"><control showOnce=\"false\" addPanel=\"true\" panelCaption=\"\">/App_Plugins/PropertyAccess/Dashboard/propertyaccess.dashboard.html</control></tab></section>";
                 XmlNode xmlNode = xmlDocument.SelectSingleNode("//dashBoard");
                 if (xmlNode != null)
                 {
@@ -120,7 +120,7 @@ namespace Axial.Umbraco.BackofficeTweaking.Installer
             XmlNode xmlNode = xmlDocument.SelectSingleNode("//dashboard");
             if (xmlNode != null)
             {
-                XmlNode xmlNode2 = xmlNode.SelectSingleNode("./section [@alias='BackofficeTweakingDashboardSection']");
+                XmlNode xmlNode2 = xmlNode.SelectSingleNode("./section [@alias='PropertyAccessDashboardSection']");
                 if (xmlNode2 != null)
                 {
                     xmlNode.RemoveChild(xmlNode2);

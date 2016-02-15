@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Axial.Umbraco.PropertyAccess")]
+[assembly: AssemblyTitle("Axial.Umbraco.DecendantsAudit")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Axial.Umbraco.PropertyAccess")]
+[assembly: AssemblyProduct("Axial.Umbraco.DecendantsAudit")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("eb167299-b9c9-463f-95b6-e41bfe29f08a")]
+[assembly: Guid("8fbb1f6a-ef92-4b25-8b8e-44d333247db3")]
 
 // Version information for an assembly consists of the following four values:
 //

@@ -1,0 +1,25 @@
+<div class="umb-panel" ng-controller="Umbraco.FileSystemPickerRenameDialogController">
+    <div class="umb-pane " style="">
+        <div class="control-group umb-control-group" style="">
+
+            <div class="umb-el-wrap ">
+                <label class="control-label">Rename: <strong>{{dialogData.node.id}}</strong></label>
+                <div class="controls controls-row">
+                    <input name="newName" type="text" class="bigInput input-large-type input-block-level" placeholder="New Name" ng-model="newName" />
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="umb-panel-footer">
+        <div class="umb-el-wrap umb-panel-buttons">
+            <div class="btn-toolbar umb-btn-toolbar pull-right">
+                <a href ng-click="close()" class="btn btn-link">
+                    <localize key="general_cancel">Cancel</localize>
+                </a>
+                <input type="submit" name="rename" value="Rename" ng-click="rename(dialogData.node)" class="btn btn-primary">
+            </div>
+        </div>
+    </div>
+</div>

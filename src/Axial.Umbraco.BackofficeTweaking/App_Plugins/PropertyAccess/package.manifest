@@ -1,0 +1,14 @@
+﻿{
+
+    javascript: [
+		'~/App_Plugins/PropertyAccess/propertyaccess.resource.js',
+		'~/App_Plugins/PropertyAccess/propertyaccess.js',
+		'~/App_Plugins/PropertyAccess/Dashboard/propertyaccess.dashboard.controller.js'
+    ],
+
+    css: [
+		"~/App_Plugins/PropertyAccess/propertyaccess.css",
+		'~/App_Plugins/PropertyAccess/Dashboard/propertyaccess.dashboard.css'
+    ]
+
+}

@@ -1,10 +1,10 @@
-﻿using Axial.Umbraco.BackofficeTweaking.Handlers;
-using Axial.Umbraco.BackofficeTweaking.Installer;
-using Axial.Umbraco.BackofficeTweaking.Routes;
+﻿using Axial.Umbraco.PropertyAccess.Handlers;
+using Axial.Umbraco.PropertyAccess.Installer;
+using Axial.Umbraco.PropertyAccess.Routes;
 using System.Web.Routing;
 using Umbraco.Core;
 
-namespace Axial.Umbraco.BackofficeTweaking.Events
+namespace Axial.Umbraco.PropertyAccess.Events
 {
     public class UmbracoStartupEvent : ApplicationEventHandler
     {

@@ -1,7 +1,7 @@
 ﻿(function () {
 
     //Main controller
-    function BackofficeTweakingDashboardController($rootScope, $scope, $timeout, assetsService, BackofficeTweakingResource, notificationsService) {
+    function PropertyAccessDashboardController($rootScope, $scope, $timeout, assetsService, PropertyAccessResource, notificationsService) {
 
         $scope.columns = {
             "columns": [
@@ -63,10 +63,10 @@
         resetProertiesEditors();
 
         // Load the css file with the grid's styles
-        assetsService.loadCss("/App_Plugins/BackofficeTweaking/Dashboard/backofficetweaking.dashboard.css");
+        assetsService.loadCss("/App_Plugins/PropertyAccess/Dashboard/propertyaccess.dashboard.css");
 
         // Load rules
-        BackofficeTweakingResource.getRules().then(
+        PropertyAccessResource.getRules().then(
             function (response) {
                 if (response.data) {
                     var Rules = JSON.parse(JSON.parse(response.data)).Rules;
@@ -141,7 +141,7 @@
         // Save rules
         $scope.save = function () {
             $scope.actionInProgress = true;
-            BackofficeTweakingResource.saveRules({ "Rule": $scope.value }).then(
+            PropertyAccessResource.saveRules({ "Rule": $scope.value }).then(
                     function (result) {
                         if (result.data && result.data != "" && result.data != '""') {
                             notificationsService.error("Error saving rules", result.data);
@@ -166,7 +166,7 @@
     };
 
     // Register the controller
-    angular.module("umbraco").controller('BackofficeTweaking.DashboardController', BackofficeTweakingDashboardController);
+    angular.module("umbraco").controller('PropertyAccess.DashboardController', PropertyAccessDashboardController);
 
 })();
 

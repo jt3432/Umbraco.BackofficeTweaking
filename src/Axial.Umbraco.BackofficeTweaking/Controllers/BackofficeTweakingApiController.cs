@@ -28,16 +28,16 @@ using Umbraco.Web.Mvc;
 using Umbraco.Web.WebApi;
 using Umbraco.Core.Logging;
 
-using Axial.Umbraco.BackofficeTweaking.Helpers;
+using Axial.Umbraco.PropertyAccess.Helpers;
 
-namespace Axial.Umbraco.BackofficeTweaking.Controllers
+namespace Axial.Umbraco.PropertyAccess.Controllers
 {
-    [PluginController("BackofficeTweaking")]
+    [PluginController("PropertyAccess")]
     [IsBackOffice]
-    public class BackofficeTweakingApiController : UmbracoAuthorizedJsonController
+    public class PropertyAccessApiController : UmbracoAuthorizedJsonController
     {
-        private const string _CacheIdApiControllerRules = "BackofficeTweaking.CacheId.ApiControllerRules";
-        private const string _CacheIdApiControllerScripts = "BackofficeTweaking.CacheId.ApiControllerScripts";
+        private const string _CacheIdApiControllerRules = "PropertyAccess.CacheId.ApiControllerRules";
+        private const string _CacheIdApiControllerScripts = "PropertyAccess.CacheId.ApiControllerScripts";
 
         [System.Web.Http.HttpGet]
         public string GetRules()
@@ -68,7 +68,7 @@ namespace Axial.Umbraco.BackofficeTweaking.Controllers
             }
             catch (Exception ex)
             {
-                LogHelper.Error(typeof(BackofficeTweakingApiController), "Error serializing rules.", ex);
+                LogHelper.Error(typeof(PropertyAccessApiController), "Error serializing rules.", ex);
             }
 
             return result;
@@ -138,7 +138,7 @@ namespace Axial.Umbraco.BackofficeTweaking.Controllers
             }
             catch (Exception ex)
             {
-                LogHelper.Error(typeof(BackofficeTweakingApiController), "Error deserializing rules.", ex);
+                LogHelper.Error(typeof(PropertyAccessApiController), "Error deserializing rules.", ex);
                 result = string.Format("Error deserializing rules: {0}", ex.Message);
                 return result;
             }
@@ -180,7 +180,7 @@ namespace Axial.Umbraco.BackofficeTweaking.Controllers
             }
             catch (Exception ex)
             {
-                LogHelper.Error(typeof(BackofficeTweakingApiController), "Error serializing scripts.", ex);
+                LogHelper.Error(typeof(PropertyAccessApiController), "Error serializing scripts.", ex);
             }
 
             return result;

@@ -1,6 +1,6 @@
-﻿using Axial.Umbraco.BackofficeTweaking.Extensions;
-using Axial.Umbraco.BackofficeTweaking.Helpers;
-using Axial.Umbraco.BackofficeTweaking.Models;
+﻿using Axial.Umbraco.PropertyAccess.Extensions;
+using Axial.Umbraco.PropertyAccess.Helpers;
+using Axial.Umbraco.PropertyAccess.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +12,7 @@ using Umbraco.Core.Logging;
 using Umbraco.Web;
 using Umbraco.Web.Models.ContentEditing;
 
-namespace Axial.Umbraco.BackofficeTweaking.Handlers
+namespace Axial.Umbraco.PropertyAccess.Handlers
 {
 
     public class RulesHandler : DelegatingHandler

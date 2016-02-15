@@ -104,7 +104,7 @@
                         if (scope.property.config.runscripts) {
 
                             $.ajax({
-                                url: "/umbraco/backoffice/BackofficeTweaking/BackofficeTweakingApi/getScripts",
+                                url: "/umbraco/backoffice/PropertyAccess/PropertyAccessApi/getScripts",
                                 dataType: "html",
                                 type: "GET",
                                 cache: true,

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace Axial.Umbraco.BackofficeTweaking.Extensions
+namespace Axial.Umbraco.PropertyAccess.Extensions
 {
     internal static class IListExtensions
     {

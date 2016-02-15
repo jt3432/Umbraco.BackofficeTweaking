@@ -9,10 +9,10 @@ using System.Web.Routing;
 
 using Umbraco.Core.Logging;
 
-namespace Axial.Umbraco.BackofficeTweaking.Controllers
+namespace Axial.Umbraco.PropertyAccess.Controllers
 {
     // Get embedded resources files (.html, .js, .css, ...) 
-    public class EmbeddedResourceController : Controller
+    public class PropertyAccessEmbeddedResourceController : Controller
     {
 
         public FileStreamResult GetResourcePath0(string resource)
@@ -38,7 +38,7 @@ namespace Axial.Umbraco.BackofficeTweaking.Controllers
             try
             {
                 // Get this assembly
-                Assembly assembly = typeof(EmbeddedResourceController).Assembly;
+                Assembly assembly = typeof(PropertyAccessEmbeddedResourceController).Assembly;
 
                 // If resource can be found
                 //string resourceName = string.Format("{0}.{1}{2}{3}", assembly.GetName().Name, "App_Plugins", url.Replace("/", "."), resource);
@@ -54,12 +54,12 @@ namespace Axial.Umbraco.BackofficeTweaking.Controllers
                 }
                 else
                 {
-                    LogHelper.Warn(typeof(EmbeddedResourceController), string.Format("Couldn't get the resource: {0}{1}", url, resource));
+                    LogHelper.Warn(typeof(PropertyAccessEmbeddedResourceController), string.Format("Couldn't get the resource: {0}{1}", url, resource));
                 }
             }
             catch (Exception ex)
             {
-                LogHelper.Error(typeof(EmbeddedResourceController), string.Format("Couldn't get the resource: {0}{1}", url, resource), ex);
+                LogHelper.Error(typeof(PropertyAccessEmbeddedResourceController), string.Format("Couldn't get the resource: {0}{1}", url, resource), ex);
             }
 
             return null;

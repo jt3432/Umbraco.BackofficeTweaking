@@ -1,0 +1,14 @@
+<div class="umb-panel" ng-controller="Umbraco.FileSystemPickerUploadDialogController">
+    <div class="umb-panel-body no-header with-footer umb-scrollable">
+        <fs-file-upload node="dialogData.node" on-upload-complete="onUploadComplete"></fs-file-upload>
+    </div>
+    <div class="umb-panel-footer">
+        <div class="umb-el-wrap umb-panel-buttons">
+            <div class="btn-toolbar umb-btn-toolbar pull-right">
+                <a href ng-click="close()" class="btn btn-link">
+                    <localize key="general_cancel">Cancel</localize>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

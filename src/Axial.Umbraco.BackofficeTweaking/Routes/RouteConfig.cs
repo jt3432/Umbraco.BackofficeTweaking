@@ -7,47 +7,47 @@ using System.Web.Routing;
 
 using Umbraco.Core.Logging;
 
-namespace Axial.Umbraco.BackofficeTweaking.Routes
+namespace Axial.Umbraco.PropertyAccess.Routes
 {
     public class RouteConfig
     {
         public static void RegisterRoutes(RouteCollection routes)
         {
 
-            const string pluginBasePath = "App_Plugins/BackofficeTweaking";
+            const string pluginBasePath = "App_Plugins/PropertyAccess";
             string url = string.Empty;
 
             RouteTable.Routes.MapRoute(
-                name: "BackofficeTweaking.GetResourcePath0",
+                name: "PropertyAccess.GetResourcePath0",
                 url: pluginBasePath + "/{resource}",
                 defaults: new
                 {
-                    controller = "EmbeddedResource",
+                    controller = "PropertyAccessEmbeddedResource",
                     action = "GetResourcePath0"
                 },
-                namespaces: new[] { "BackofficeTweaking.EmbeddedAssembly" }
+                namespaces: new[] { "PropertyAccess.EmbeddedAssembly" }
             );
 
             RouteTable.Routes.MapRoute(
-                name: "BackofficeTweaking.GetResourcePath1",
+                name: "PropertyAccess.GetResourcePath1",
                 url: pluginBasePath + "/{directory1}/{resource}",
                 defaults: new
                 {
-                    controller = "EmbeddedResource",
+                    controller = "PropertyAccessEmbeddedResource",
                     action = "GetResourcePath1"
                 },
-                namespaces: new[] { "BackofficeTweaking.EmbeddedAssembly" }
+                namespaces: new[] { "PropertyAccess.EmbeddedAssembly" }
             );
 
             RouteTable.Routes.MapRoute(
-                name: "BackofficeTweaking.GetResourcePath2",
+                name: "PropertyAccess.GetResourcePath2",
                 url: pluginBasePath + "/{directory1}/{directory2}/{resource}",
                 defaults: new
                 {
-                    controller = "EmbeddedResource",
+                    controller = "PropertyAccessEmbeddedResource",
                     action = "GetResourcePath2"
                 },
-                namespaces: new[] { "BackofficeTweaking.EmbeddedAssembly" }
+                namespaces: new[] { "PropertyAccess.EmbeddedAssembly" }
             );
 
         }

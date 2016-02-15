@@ -7,7 +7,7 @@ using System.Web;
 
 using Umbraco.Core.Logging;
 
-namespace Axial.Umbraco.BackofficeTweaking.Helpers
+namespace Axial.Umbraco.PropertyAccess.Helpers
 {
     public class ExceptionHelper
     {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace Axial.Umbraco.BackofficeTweaking.Models
+namespace Axial.Umbraco.PropertyAccess.Models
 {
     public class Script
     {

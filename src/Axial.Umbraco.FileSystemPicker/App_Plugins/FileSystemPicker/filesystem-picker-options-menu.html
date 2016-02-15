@@ -1,0 +1,74 @@
+﻿<div class="umb-panel" ng-controller="Umbraco.FileSystemPickerOptionsMenuController">
+
+    <div class="umb-pane">
+        <h5 class="ng-binding">Options for {{dialogData.folder}}</h5>
+
+        <ul class="umb-actions umb-actions-child">
+            <li ng-show="dialogData.node.icon === 'icon-folder'">
+                <a href ng-click="openUpload(dialogData.node)">
+
+                    <i class="icon-page-up large"></i>
+
+                    <span class="menu-label ng-binding">
+                        Upload File
+                        <small class="ng-binding">
+
+                        </small>
+                    </span>
+                </a>
+            </li>
+            <li ng-show="dialogData.node.icon === 'icon-folder'">
+                <a href ng-click="openCreate(dialogData.node)">
+
+                    <i class="icon-folder large"></i>
+
+                    <span class="menu-label ng-binding">
+                        Create Folder
+                        <small class="ng-binding">
+
+                        </small>
+                    </span>
+                </a>
+            </li>
+
+            <li ng-hide="dialogData.node.id === dialogData.node.metaData.startfolder">
+                <a href ng-click="openRename(dialogData.node)">
+
+                    <i class="icon-edit large"></i>
+
+                    <span class="menu-label ng-binding">
+                        Rename
+                        <small class="ng-binding">
+
+                        </small>
+                    </span>
+                </a>
+            </li>
+            <li ng-hide="dialogData.node.id === dialogData.node.metaData.startfolder || dialogData.node.hasChildren === true">
+                <a href ng-click="openDelete(dialogData.node)">
+
+                    <i class="icon-delete large"></i>
+
+                    <span class="menu-label ng-binding">
+                        Delete
+                        <small class="ng-binding">
+
+                        </small>
+                    </span>
+                </a>
+            </li>
+
+
+        </ul>
+    </div>
+
+    <div class="umb-panel-footer">
+        <div class="umb-el-wrap umb-panel-buttons">
+            <div class="btn-toolbar umb-btn-toolbar pull-right">
+                <a href ng-click="close()" class="btn btn-link">
+                    <localize key="general_cancel">Cancel</localize>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

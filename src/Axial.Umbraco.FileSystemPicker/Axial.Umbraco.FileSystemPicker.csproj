@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{EB167299-B9C9-463F-95B6-E41BFE29F08A}</ProjectGuid>
+    <ProjectGuid>{C0318AC1-1532-49A6-9828-13F99E722431}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Axial.Umbraco.BackofficeTweaking</RootNamespace>
-    <AssemblyName>Axial.Umbraco.BackofficeTweaking</AssemblyName>
+    <RootNamespace>Axial.Umbraco.FileSystemPicker</RootNamespace>
+    <AssemblyName>Axial.Umbraco.FileSystemPicker</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -159,6 +159,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.SqlServerCe, Version=4.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\UmbracoCms.Core.7.3.4\lib\System.Data.SqlServerCe.dll</HintPath>
@@ -168,8 +169,7 @@
       <HintPath>..\packages\UmbracoCms.Core.7.3.4\lib\System.Data.SqlServerCe.Entity.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="System.IO.Compression" />
-    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Net.Http.Extensions, Version=2.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\net45\System.Net.Http.Extensions.dll</HintPath>
       <Private>True</Private>
@@ -183,6 +183,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
@@ -204,6 +205,7 @@
       <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Web.Routing" />
     <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
       <Private>True</Private>
@@ -272,42 +274,39 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Plugins\BackofficeTweakerPropEditor.cs" />
-    <Compile Include="Controllers\EmbeddedResourceController.cs" />
-    <Compile Include="Installer\InstallHelper.cs" />
-    <Compile Include="Routes\RouteConfig.cs" />
-    <Compile Include="Events\UmbracoStartupEvent.cs" />
-    <Compile Include="Extensions\IListExtensions.cs" />
-    <Compile Include="Handlers\RulesHandler.cs" />
-    <Compile Include="Helpers\ConfigFileHelper.cs" />
-    <Compile Include="Helpers\ExceptionHelper.cs" />
-    <Compile Include="Controllers\BackofficeTweakingApiController.cs" />
-    <Compile Include="Models\Rule.cs" />
-    <Compile Include="Models\Script.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\StartUpHandlers.cs" />
+    <Compile Include="Controllers\FileSystemPickerEmbeddedController.cs" />
+    <Compile Include="Controllers\FileSystemPickerApiController.cs" />
+    <Compile Include="Controllers\FileSystemThumbnailApiController.cs" />
+    <Compile Include="Controllers\FolderSystemTreeController.cs" />
+    <Compile Include="App_Plugins\FileSystemPicker\FileSystemPickerPropEditor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="App_Plugins\BackofficeTweaking\Installer\Logo.png" />
-    <EmbeddedResource Include="App_Plugins\BackofficeTweaking\Dashboard\propertiesViews\textbox.html" />
-    <EmbeddedResource Include="App_Plugins\BackofficeTweaking\Dashboard\propertiesViews\textarea.html" />
-    <EmbeddedResource Include="App_Plugins\BackofficeTweaking\Dashboard\propertiesViews\readonly.html" />
-    <EmbeddedResource Include="App_Plugins\BackofficeTweaking\Dashboard\propertiesViews\numeric.html" />
-    <EmbeddedResource Include="App_Plugins\BackofficeTweaking\Dashboard\propertiesViews\dropdown.html" />
-    <EmbeddedResource Include="App_Plugins\BackofficeTweaking\Dashboard\propertiesViews\checkbox.html" />
-    <EmbeddedResource Include="App_Plugins\BackofficeTweaking\Dashboard\backofficetweaking.dashboard.html" />
-    <EmbeddedResource Include="App_Plugins\BackofficeTweaking\Dashboard\backofficetweaking.dashboard.css" />
-    <EmbeddedResource Include="App_Plugins\BackofficeTweaking\Dashboard\backofficetweaking.dashboard.controller.js" />
-    <EmbeddedResource Include="App_Plugins\BackofficeTweaking\backofficetweaking.resource.js" />
-    <EmbeddedResource Include="App_Plugins\BackofficeTweaking\backofficetweaking.js" />
-    <EmbeddedResource Include="App_Plugins\BackofficeTweaking\backofficetweaking.css" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="App_Plugins\BackofficeTweaking\package.manifest" />
-  </ItemGroup>
-  <ItemGroup>
+    <EmbeddedResource Include="umbraco\lib\tinymce\plugins\fsmediapicker\plugin.min.js" />
     <None Include="app.config" />
+    <EmbeddedResource Include="App_Plugins\FileSystemPicker\filesystem-picker-dialog.html" />
+    <EmbeddedResource Include="App_Plugins\FileSystemPicker\filesystem-picker-file-upload.html" />
+    <EmbeddedResource Include="App_Plugins\FileSystemPicker\filesystem-picker-options-menu.html" />
+    <EmbeddedResource Include="App_Plugins\FileSystemPicker\filesystem-picker.controller.js" />
+    <EmbeddedResource Include="App_Plugins\FileSystemPicker\filesystem-picker.directives.js" />
+    <EmbeddedResource Include="App_Plugins\FileSystemPicker\filesystem-picker.html" />
+    <EmbeddedResource Include="App_Plugins\FileSystemPicker\foldersystem-picker-dialog.html" />
+    <EmbeddedResource Include="App_Plugins\FileSystemPicker\foldersystem-picker-newfolder-dialog.html" />
+    <EmbeddedResource Include="App_Plugins\FileSystemPicker\foldersystem-picker-upload-dialog.html" />
+    <EmbeddedResource Include="App_Plugins\FileSystemPicker\foldersystem-picker.html" />
+    <EmbeddedResource Include="App_Plugins\FileSystemPicker\filesystem-picker-delete-dialog.html" />
+    <EmbeddedResource Include="App_Plugins\FileSystemPicker\filesystem-picker-newfolder-dialog.html" />
+    <EmbeddedResource Include="App_Plugins\FileSystemPicker\filesystem-picker-rename-dialog.html" />
+    <EmbeddedResource Include="App_Plugins\FileSystemPicker\filesystem-picker-upload-dialog.html" />
+    <Content Include="App_Plugins\FileSystemPicker\package.manifest" />
+    <Content Include="Config\tinyMceConfig.config">
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
   <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">

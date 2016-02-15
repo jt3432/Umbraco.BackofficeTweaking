@@ -1,0 +1,18 @@
+<div class="umb-dialog umb-pane ng-scope" ng-controller="Umbraco.FileSystemPickerDeleteDialogController">
+    <div class="umb-dialog-body" auto-scale="90" style="height: 445px;">
+
+        <p class="umb-abstract">
+            <localize key="defaultdialogs_confirmdelete" class="ng-isolate-scope ng-scope">Are you sure you want to delete</localize> <strong class="ng-binding">{{dialogData.node.id}}</strong> ?
+        </p>
+
+        <div>
+            <div class="umb-pane btn-toolbar umb-btn-toolbar">
+                <div class="control-group umb-control-group">
+                    <a href="" class="btn btn-link" ng-click="close()"><localize key="general_cancel" class="ng-isolate-scope ng-scope">Cancel</localize></a>
+                    <a href="" class="btn btn-primary" ng-click="delete(dialogData.node)"><localize key="general_ok" class="ng-isolate-scope ng-scope">OK</localize></a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

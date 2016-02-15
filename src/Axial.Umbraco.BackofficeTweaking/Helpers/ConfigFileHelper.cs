@@ -15,10 +15,10 @@ using Umbraco.Core.Strings;
 using Umbraco.Core.Models.Membership;
 using Umbraco.Core.Logging;
 
-using Axial.Umbraco.BackofficeTweaking.Models;
-using Axial.Umbraco.BackofficeTweaking.Extensions;
+using Axial.Umbraco.PropertyAccess.Models;
+using Axial.Umbraco.PropertyAccess.Extensions;
 
-namespace Axial.Umbraco.BackofficeTweaking.Helpers
+namespace Axial.Umbraco.PropertyAccess.Helpers
 {
     public enum RuleType
     {
@@ -33,9 +33,9 @@ namespace Axial.Umbraco.BackofficeTweaking.Helpers
 
     public class ConfigFileHelper
     {
-        private const string _CacheIdRules = "BackofficeTweaking.CacheId.CachedRules";
-        private const string _CacheIdScripts = "BackofficeTweaking.CacheId.CachedScripts";
-        private const string _ConfigFile = "~/Config/BackofficeTweaking.config";
+        private const string _CacheIdRules = "PropertyAccess.CacheId.CachedRules";
+        private const string _CacheIdScripts = "PropertyAccess.CacheId.CachedScripts";
+        private const string _ConfigFile = "~/Config/PropertyAccess.config";
 
         public static string getConfigFilePath()
         {

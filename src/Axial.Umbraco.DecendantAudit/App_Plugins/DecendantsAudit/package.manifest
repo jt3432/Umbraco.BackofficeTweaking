@@ -1,0 +1,13 @@
+﻿{
+    javascript: [
+		'~/App_Plugins/DecendantsAudit/decendantsaudit.resource.js',		
+		'~/App_Plugins/DecendantsAudit/controllers/decendantsaudit.config.controller.js',
+		'~/App_Plugins/DecendantsAudit/controllers/decendantsaudit.property.controller.js'
+		'~/App_Plugins/DecendantsAudit/vendors/jquery.treetable.js'
+    ],
+
+    css: [
+		"~/App_Plugins/DecendantsAudit/decendantsaudit.css"
+    ]
+
+}
