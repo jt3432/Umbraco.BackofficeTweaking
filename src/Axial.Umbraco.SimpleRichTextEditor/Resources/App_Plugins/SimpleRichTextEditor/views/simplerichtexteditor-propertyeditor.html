@@ -1,0 +1,13 @@
+﻿
+<div ng-controller="Umbraco.SimpleRichTextEditorController" class="umb-editor">
+    <div class="srte-wrapper">
+        <div class="button-bar umb-editor">
+            <button type="button" ng-click="clean()" title="Clear All Formatting"><i class="mce-ico mce-i-removeformat"></i></button>
+            <button type="button" ng-click="bold()" title="Bold"><i class="mce-ico mce-i-bold"></i></button>
+            <button type="button" ng-click="italic()" title="Italic"><i class="mce-ico mce-i-italic"></i></button>
+            <button type="button" ng-click="strike()" title="Strikethrough"><i class="mce-ico mce-i-strikethrough"></i></button>
+        </div>
+        <input type="text" id="{{model.alias}}" class="umb-editor umb-textstring textstring" ng-model="model.value" />
+        <div class="preview"><span ng-bind-html="model.value"></span></div>
+    </div>
+</div>

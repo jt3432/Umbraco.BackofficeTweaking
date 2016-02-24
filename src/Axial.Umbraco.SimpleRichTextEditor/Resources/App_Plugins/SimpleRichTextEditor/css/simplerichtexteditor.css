@@ -1,0 +1,13 @@
+﻿.srte-wrapper .button-bar {
+    margin-bottom: 3px;
+}
+
+.srte-wrapper .button-bar button {
+    border: none;
+    background: none;
+}
+
+.srte-wrapper .preview {
+    padding: 5px 1px;
+}
+
