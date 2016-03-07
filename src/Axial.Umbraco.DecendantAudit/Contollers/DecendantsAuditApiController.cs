@@ -15,18 +15,18 @@ namespace Axial.Umbraco.DecendantsAudit.Controllers
     {
 
         [System.Web.Http.HttpGet]
-        public IEnumerable<AuditRecordModel> GetAudit(Guid id)
+        public IEnumerable<AuditRecordModel> GetAudit(Guid id, string aliases)
         {
             var parent = Services.ContentService.GetById(id);
             var children = Services.ContentService.GetChildren(parent.Id);
 
             List<AuditRecordModel> records = new List<AuditRecordModel>();
-            records = GetDecendantAuditRecords(parent.Id);
+            records = GetDecendantAuditRecords(parent.Id, aliases);
 
             return records;
         }
 
-        private List<AuditRecordModel> GetDecendantAuditRecords(int parentId, List<AuditRecordModel> records = null)
+        private List<AuditRecordModel> GetDecendantAuditRecords(int parentId,string aliases, List<AuditRecordModel> records = null)
         {
             records = records ?? new List<AuditRecordModel>();
 
@@ -37,19 +37,23 @@ namespace Axial.Umbraco.DecendantsAudit.Controllers
                 var db = DatabaseContext.Database;
                 //var action = db.Query<string>("SELECT a.[comment] FROM (SELECT Max([Datestamp]) as [date],[logComment] as [comment] FROM [umbracoLog] WHERE NodeId = @0 GROUP BY [logComment]) a", child.Id);
 
-                records.Add(new AuditRecordModel()
+                if (String.IsNullOrEmpty(aliases) || aliases.Contains(child.ContentType.Alias))
                 {
-                    Name = child.Name,
-                    CreatedBy = Services.UserService.GetProfileById(child.CreatorId).Name,
-                    CreatedDate = child.CreateDate.ToString("MM/dd/yyyy HH:mm:ss"),
-                    ModifiedBy = Services.UserService.GetProfileById(child.WriterId).Name,
-                    ModifiedDate = child.UpdateDate.ToString("MM/dd/yyyy HH:mm:ss"),
-                    Action = "",
-                    Id = child.Id,
-                    ParentId = parentId
-                });
+                    records.Add(new AuditRecordModel()
+                    {
+                        Name = child.Name,
+                        CreatedBy = Services.UserService.GetProfileById(child.CreatorId).Name,
+                        CreatedDate = child.CreateDate.ToString("MM/dd/yyyy HH:mm:ss"),
+                        ModifiedBy = Services.UserService.GetProfileById(child.WriterId).Name,
+                        ModifiedDate = child.UpdateDate.ToString("MM/dd/yyyy HH:mm:ss"),
+                        Action = "",
+                        Id = child.Id,
+                        ParentId = parentId,
+                        ContentTypeAlias = child.ContentType.Alias
+                    });
 
-                records = GetDecendantAuditRecords(child.Id, records);
+                }
+                records = GetDecendantAuditRecords(child.Id, aliases, records);
             }
 
             return records;
