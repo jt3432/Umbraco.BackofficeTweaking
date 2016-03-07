@@ -1,4 +1,5 @@
 ﻿using ClientDependency.Core;
+using System.Collections.Generic;
 using Umbraco.Core.PropertyEditors;
 using Umbraco.Web.PropertyEditors;
 
@@ -15,6 +16,23 @@ namespace Axial.Umbraco.DecendantsAudit
     [PropertyEditorAsset(ClientDependencyType.Css, "/App_Plugins/DecendantsAudit/vendors/jquery.treetable.theme.default.css")]
     public class DecendantsAuditPropertyEditor : PropertyEditor
     {
-        
+        protected override PreValueEditor CreatePreValueEditor()
+        {
+            return new FileSystemPickerPreValueEditor();
+        }
+                
+        internal class FileSystemPickerPreValueEditor : PreValueEditor
+        {
+            public FileSystemPickerPreValueEditor()
+            {                
+                Fields.Add(new PreValueField()
+                {
+                    Description = "Comma seperated list of content type aliases.",
+                    Key = "decendantContentTypes",
+                    Name = "Decendant Content Types",
+                    View = "textstring"
+                });
+            }
+        }
     }
 }

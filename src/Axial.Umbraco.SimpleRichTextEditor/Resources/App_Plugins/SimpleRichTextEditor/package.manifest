@@ -1,0 +1,17 @@
+﻿{
+	propertyEditors: [
+        {
+            alias: "Umbraco.SimpleRichTextEditor",
+            name: "Simple Rich Text Editor",
+            editor: {
+                view: "~/App_Plugins/SimpleRichTextEditor/views/simplerichtexteditor-propertyeditor.html"
+            }
+        }
+    ],
+	javascript: [
+		'~/App_Plugins/SimpleRichTextEditor/controllers/simplerichtexteditor-propertyeditor-controller.js'	
+	],
+	css: [
+		'~/App_Plugins/SimpleRichTextEditor/css/simplerichtexteditor.css'
+	]
+}

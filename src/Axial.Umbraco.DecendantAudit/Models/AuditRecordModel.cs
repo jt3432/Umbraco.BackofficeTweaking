@@ -16,5 +16,6 @@ namespace Axial.Umbraco.DecendantsAudit.Models
         public string Action { get; set; }
         public int Id { get; set; }
         public int ParentId { get; set; }
+        public string ContentTypeAlias { get; set; }
     }
 }
