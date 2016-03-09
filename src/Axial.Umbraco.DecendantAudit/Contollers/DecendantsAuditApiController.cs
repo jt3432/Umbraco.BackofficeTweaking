@@ -18,11 +18,17 @@ namespace Axial.Umbraco.DecendantsAudit.Controllers
         public IEnumerable<AuditRecordModel> GetAudit(Guid id, string aliases)
         {
             var parent = Services.ContentService.GetById(id);
-            var children = Services.ContentService.GetChildren(parent.Id);
+            List<AuditRecordModel> records = null;
 
-            List<AuditRecordModel> records = new List<AuditRecordModel>();
-            records = GetDecendantAuditRecords(parent.Id, aliases);
+            if (parent != null)
+            {
+                var children = Services.ContentService.GetChildren(parent.Id, aliases);
 
+                if (children != null)
+                {
+                    records = GetDecendantAuditRecords(parent.Id);
+                }
+            }
             return records;
         }
 
