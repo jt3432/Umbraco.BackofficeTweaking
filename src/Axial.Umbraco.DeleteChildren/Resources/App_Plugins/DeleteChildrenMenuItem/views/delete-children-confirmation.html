@@ -1,0 +1,14 @@
+﻿<div class="umb-dialog umb-pane" ng-controller="Umbraco.DeleteChildrenConfirmationController">
+    <div class="umb-dialog-body" auto-scale="90">
+
+        <p class="umb-abstract">
+            Are you sure you want to delete all the child nodes of <strong>{{currentNode.name}}</strong> ?
+        </p>
+
+        <umb-confirm on-confirm="performDelete" on-cancel="cancel"></umb-confirm>
+
+        <p ng-show="showMessage">
+            {{message}}
+        </p>
+    </div>
+</div>
