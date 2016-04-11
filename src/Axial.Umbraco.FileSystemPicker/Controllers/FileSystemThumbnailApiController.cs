@@ -1,4 +1,5 @@
-﻿using ImageProcessor;
+﻿using Axial.Umbraco.FileSystemPicker.Controllers;
+using ImageProcessor;
 using ImageProcessor.Imaging;
 using ImageProcessor.Imaging.Formats;
 using System;

@@ -8,6 +8,7 @@ using Umbraco.Web.Trees;
 using System.Collections.Generic;
 using System.IO;
 using System.Web;
+using Axial.Umbraco.FileSystemPicker.Controllers;
 
 namespace Umbraco.FileSystemPicker.Controllers
 {

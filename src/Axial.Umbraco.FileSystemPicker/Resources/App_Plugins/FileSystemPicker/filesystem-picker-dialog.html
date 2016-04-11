@@ -7,13 +7,18 @@
                  hideheader="false"
                  isdialog="true"
                  title="{{dialogData.folder}}"
-                 customtreeparams="startfolder={{dialogData.folder}}&amp;filter={{dialogData.filter}}&amp;files=true" />
+                 customtreeparams="startfolder={{dialogData.folder}}&amp;filter={{dialogData.filter}}&amp;managementMode={{dialogData.managementMode}}&amp;files=true" />
     </div>
     <div class="umb-panel-footer">
         <div class="umb-el-wrap umb-panel-buttons">
             <div class="btn-toolbar umb-btn-toolbar pull-right">
-                <a href ng-click="close()" class="btn btn-link">
-                    <localize key="general_cancel">Cancel</localize>
+                <a href ng-click="close()" class="btn btn-link">                    
+                    <span ng-hide="dialogData.managementMode">
+                        <localize key="general_cancel">Cancel</localize>
+                    </span>
+                    <span ng-show="dialogData.managementMode">
+                        Close
+                    </span>
                 </a>
             </div>
         </div>

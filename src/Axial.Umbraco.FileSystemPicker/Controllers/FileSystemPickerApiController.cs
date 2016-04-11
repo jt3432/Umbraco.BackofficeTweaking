@@ -21,7 +21,7 @@ using Umbraco.Web.Mvc;
 using Umbraco.Web.UI;
 using Umbraco.Web.WebApi;
 //test
-namespace Umbraco.FileSystemPicker.Controllers
+namespace Axial.Umbraco.FileSystemPicker.Controllers
 {
     [PluginController("FileSystemPicker")]
     public class FileSystemPickerApiController : UmbracoAuthorizedJsonController
@@ -39,7 +39,7 @@ namespace Umbraco.FileSystemPicker.Controllers
                 {
                     startFoolderName = node.GetValue<string>(startFolderNamePropertyAlias);
 
-                    if (false == string.IsNullOrWhiteSpace(removeCharactersPropertyAlias))
+                    if (false == string.IsNullOrWhiteSpace(startFoolderName) && false == string.IsNullOrWhiteSpace(removeCharactersPropertyAlias))
                     {
                         startFoolderName = Regex.Replace(startFoolderName, removeCharactersPropertyAlias, "");
                     }

@@ -15,7 +15,6 @@ angular.module('umbraco').controller('Umbraco.FolderSystemPickerController', fol
 
 
 function folderSystemPickerDialogController($scope, dialogService) {
-
     $scope.dialogEventHandler = $({});
     $scope.dialogEventHandler.bind('treeNodeSelect', nodeSelectHandler);
 
@@ -49,7 +48,8 @@ function fileSystemPickerController($scope, $http, $routeParams, dialogService) 
                         callback: populate,
                         dialogData: {
                             filter: $scope.model.config.filter,
-                            folder: startFolder
+                            folder: startFolder,
+                            managementMode: $scope.model.config.managementMode
                         }
                     });
 
@@ -104,7 +104,7 @@ function fileSystemPickerDialogController($rootScope, $scope, $log, dialogServic
     function nodeSelectHandler(ev, args) {
         args.event.preventDefault();
         args.event.stopPropagation();
-        if (args.node.icon !== 'icon-folder') {
+        if (args.node.icon !== 'icon-folder' && !args.node.metaData.managementMode) {
             $scope.submit(args.node.id);
         }
     };

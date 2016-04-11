@@ -274,33 +274,34 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="App_Start\StartUpHandlers.cs" />
     <Compile Include="Controllers\FileSystemPickerEmbeddedController.cs" />
     <Compile Include="Controllers\FileSystemPickerApiController.cs" />
     <Compile Include="Controllers\FileSystemThumbnailApiController.cs" />
     <Compile Include="Controllers\FolderSystemTreeController.cs" />
-    <Compile Include="App_Plugins\FileSystemPicker\FileSystemPickerPropEditor.cs" />
+    <Compile Include="Editors\FileSystemPickerPropEditor.cs" />
+    <Compile Include="Events\StartUpHandlers.cs" />
+    <Compile Include="Install\PluginInstaller.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities\PluginHelpers.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="umbraco\lib\tinymce\plugins\fsmediapicker\plugin.min.js" />
+    <EmbeddedResource Include="Resources\umbraco\lib\tinymce\plugins\fsmediapicker\plugin.min.js" />
     <None Include="app.config" />
-    <EmbeddedResource Include="App_Plugins\FileSystemPicker\filesystem-picker-dialog.html" />
-    <EmbeddedResource Include="App_Plugins\FileSystemPicker\filesystem-picker-file-upload.html" />
-    <EmbeddedResource Include="App_Plugins\FileSystemPicker\filesystem-picker-options-menu.html" />
-    <EmbeddedResource Include="App_Plugins\FileSystemPicker\filesystem-picker.controller.js" />
-    <EmbeddedResource Include="App_Plugins\FileSystemPicker\filesystem-picker.directives.js" />
-    <EmbeddedResource Include="App_Plugins\FileSystemPicker\filesystem-picker.html" />
-    <EmbeddedResource Include="App_Plugins\FileSystemPicker\foldersystem-picker-dialog.html" />
-    <EmbeddedResource Include="App_Plugins\FileSystemPicker\foldersystem-picker-newfolder-dialog.html" />
-    <EmbeddedResource Include="App_Plugins\FileSystemPicker\foldersystem-picker-upload-dialog.html" />
-    <EmbeddedResource Include="App_Plugins\FileSystemPicker\foldersystem-picker.html" />
-    <EmbeddedResource Include="App_Plugins\FileSystemPicker\filesystem-picker-delete-dialog.html" />
-    <EmbeddedResource Include="App_Plugins\FileSystemPicker\filesystem-picker-newfolder-dialog.html" />
-    <EmbeddedResource Include="App_Plugins\FileSystemPicker\filesystem-picker-rename-dialog.html" />
-    <EmbeddedResource Include="App_Plugins\FileSystemPicker\filesystem-picker-upload-dialog.html" />
-    <Content Include="App_Plugins\FileSystemPicker\package.manifest" />
+    <EmbeddedResource Include="Resources\App_Plugins\FileSystemPicker\filesystem-picker-dialog.html" />
+    <EmbeddedResource Include="Resources\App_Plugins\FileSystemPicker\filesystem-picker-file-upload.html" />
+    <EmbeddedResource Include="Resources\App_Plugins\FileSystemPicker\filesystem-picker-options-menu.html" />
+    <EmbeddedResource Include="Resources\App_Plugins\FileSystemPicker\filesystem-picker.controller.js" />
+    <EmbeddedResource Include="Resources\App_Plugins\FileSystemPicker\filesystem-picker.directives.js" />
+    <EmbeddedResource Include="Resources\App_Plugins\FileSystemPicker\filesystem-picker.html" />
+    <EmbeddedResource Include="Resources\App_Plugins\FileSystemPicker\foldersystem-picker-dialog.html" />
+    <EmbeddedResource Include="Resources\App_Plugins\FileSystemPicker\foldersystem-picker-newfolder-dialog.html" />
+    <EmbeddedResource Include="Resources\App_Plugins\FileSystemPicker\foldersystem-picker-upload-dialog.html" />
+    <EmbeddedResource Include="Resources\App_Plugins\FileSystemPicker\foldersystem-picker.html" />
+    <EmbeddedResource Include="Resources\App_Plugins\FileSystemPicker\filesystem-picker-delete-dialog.html" />
+    <EmbeddedResource Include="Resources\App_Plugins\FileSystemPicker\filesystem-picker-newfolder-dialog.html" />
+    <EmbeddedResource Include="Resources\App_Plugins\FileSystemPicker\filesystem-picker-rename-dialog.html" />
+    <EmbeddedResource Include="Resources\App_Plugins\FileSystemPicker\filesystem-picker-upload-dialog.html" />
+    <Content Include="Resources\App_Plugins\FileSystemPicker\package.manifest" />
     <Content Include="Config\tinyMceConfig.config">
       <SubType>Designer</SubType>
     </Content>

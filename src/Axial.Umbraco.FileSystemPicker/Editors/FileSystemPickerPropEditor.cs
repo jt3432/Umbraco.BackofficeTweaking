@@ -9,7 +9,7 @@ using Umbraco.Core.Models;
 using Umbraco.Core.PropertyEditors;
 using Umbraco.Web.PropertyEditors;
 
-namespace Axial.Umbraco.FileSystemPicker
+namespace Axial.Umbraco.FileSystemPicker.Editors
 {
     [PropertyEditor("FileSystemPicker", "FileSystemPicker Editor", "/App_Plugins/FileSystemPicker/filesystem-picker.html", ValueType = "TEXT")]
     [PropertyEditorAsset(ClientDependencyType.Javascript, "/App_Plugins/FileSystemPicker/filesystem-picker.controller.js")]
@@ -38,6 +38,15 @@ namespace Axial.Umbraco.FileSystemPicker
             public FileSystemPickerPreValueEditor()
             {
                 //create the fields
+                Fields.Add(new PreValueField()
+                {
+                    Description = "Enable management of files only.",
+                    Key = "managementMode",
+                    Name = "Management Mode",
+                    View = "boolean",
+
+                });
+
                 Fields.Add(new PreValueField()
                 {
                     Description = "Pick the start folder to select a file from",

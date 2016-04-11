@@ -18,7 +18,12 @@
         <li>
             <i class="icon icon-add blue"></i>
             <a href="#" ng-click="openPicker()" prevent-default="">
-                <localize key="general_add">Add</localize>
+                <span ng-hide="model.config.managementMode">
+                    <localize key="general_add">Add</localize>
+                </span>
+                <span ng-show="model.config.managementMode">
+                    Manage Files
+                </span>
             </a>
         </li>
     </ul>
