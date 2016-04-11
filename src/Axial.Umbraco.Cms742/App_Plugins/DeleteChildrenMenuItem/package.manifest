@@ -1,0 +1,6 @@
+﻿{
+	javascript: [
+		'~/App_Plugins/DeleteChildrenMenuItem/controllers/delete-children-controller.js',
+		'~/App_Plugins/DeleteChildrenMenuItem/resources/delete-children-resources.js'		
+	]
+}

@@ -12,8 +12,9 @@ using Umbraco.Web.PropertyEditors;
 namespace Axial.Umbraco.FileSystemPicker.Editors
 {
     [PropertyEditor("FileSystemPicker", "FileSystemPicker Editor", "/App_Plugins/FileSystemPicker/filesystem-picker.html", ValueType = "TEXT")]
-    [PropertyEditorAsset(ClientDependencyType.Javascript, "/App_Plugins/FileSystemPicker/filesystem-picker.controller.js")]
-    [PropertyEditorAsset(ClientDependencyType.Javascript, "/App_Plugins/FileSystemPicker/filesystem-picker.directives.js")]
+    [PropertyEditorAsset(ClientDependencyType.Javascript, "/App_Plugins/FileSystemPicker/filesystem-picker-controller.js")]
+    [PropertyEditorAsset(ClientDependencyType.Javascript, "/App_Plugins/FileSystemPicker/filesystem-picker-directives.js")]
+    [PropertyEditorAsset(ClientDependencyType.Css, "/App_Plugins/FileSystemPicker/filesystem-picker-directives.css")]
     public class FileSystemPickerPropEditor : PropertyEditor
     {
         protected override PreValueEditor CreatePreValueEditor()
@@ -52,8 +53,9 @@ namespace Axial.Umbraco.FileSystemPicker.Editors
                     Description = "Pick the start folder to select a file from",
                     Key = "folder",
                     Name = "Folder",
-                    View = "/App_Plugins/FileSystemPicker/foldersystem-picker.html",
-                    
+                    //View = "/App_Plugins/FileSystemPicker/foldersystem-picker.html",
+                    View = "textstring"
+
                 });
 
                 Fields.Add(new PreValueField()

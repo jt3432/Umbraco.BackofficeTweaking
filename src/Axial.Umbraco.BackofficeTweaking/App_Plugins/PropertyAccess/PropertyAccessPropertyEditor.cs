@@ -11,7 +11,7 @@ using Umbraco.Web.PropertyEditors;
 
 namespace Axial.Umbraco.PropertyAccess
 {
-    [PropertyEditor("PropertyAccess", "FileSystemPicker Editor", "/App_Plugins/PropertyAccess/")]
+    [PropertyEditor("PropertyAccess", "Property Access Editor", "/App_Plugins/PropertyAccess/")]
     [PropertyEditorAsset(ClientDependencyType.Javascript, "/App_Plugins/PropertyAccess/propertyaccess.resource.js")]
     [PropertyEditorAsset(ClientDependencyType.Javascript, "/App_Plugins/PropertyAccess/propertyaccess.js")]
     [PropertyEditorAsset(ClientDependencyType.Javascript, "/App_Plugins/PropertyAccess/Dashboard/propertyaccess.dashboard.controller.js")]

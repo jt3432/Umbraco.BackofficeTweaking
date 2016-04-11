@@ -274,7 +274,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\FileSystemPickerEmbeddedController.cs" />
     <Compile Include="Controllers\FileSystemPickerApiController.cs" />
     <Compile Include="Controllers\FileSystemThumbnailApiController.cs" />
     <Compile Include="Controllers\FolderSystemTreeController.cs" />
@@ -290,8 +289,8 @@
     <EmbeddedResource Include="Resources\App_Plugins\FileSystemPicker\filesystem-picker-dialog.html" />
     <EmbeddedResource Include="Resources\App_Plugins\FileSystemPicker\filesystem-picker-file-upload.html" />
     <EmbeddedResource Include="Resources\App_Plugins\FileSystemPicker\filesystem-picker-options-menu.html" />
-    <EmbeddedResource Include="Resources\App_Plugins\FileSystemPicker\filesystem-picker.controller.js" />
-    <EmbeddedResource Include="Resources\App_Plugins\FileSystemPicker\filesystem-picker.directives.js" />
+    <EmbeddedResource Include="Resources\App_Plugins\FileSystemPicker\filesystem-picker-controller.js" />
+    <EmbeddedResource Include="Resources\App_Plugins\FileSystemPicker\filesystem-picker-directives.js" />
     <EmbeddedResource Include="Resources\App_Plugins\FileSystemPicker\filesystem-picker.html" />
     <EmbeddedResource Include="Resources\App_Plugins\FileSystemPicker\foldersystem-picker-dialog.html" />
     <EmbeddedResource Include="Resources\App_Plugins\FileSystemPicker\foldersystem-picker-newfolder-dialog.html" />
@@ -301,6 +300,7 @@
     <EmbeddedResource Include="Resources\App_Plugins\FileSystemPicker\filesystem-picker-newfolder-dialog.html" />
     <EmbeddedResource Include="Resources\App_Plugins\FileSystemPicker\filesystem-picker-rename-dialog.html" />
     <EmbeddedResource Include="Resources\App_Plugins\FileSystemPicker\filesystem-picker-upload-dialog.html" />
+    <EmbeddedResource Include="Resources\App_Plugins\FileSystemPicker\filesystem-picker-directives.css" />
     <Content Include="Resources\App_Plugins\FileSystemPicker\package.manifest" />
     <Content Include="Config\tinyMceConfig.config">
       <SubType>Designer</SubType>

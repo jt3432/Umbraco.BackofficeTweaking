@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Web;
 using Axial.Umbraco.FileSystemPicker.Controllers;
+using System;
 
 namespace Umbraco.FileSystemPicker.Controllers
 {
@@ -25,7 +26,9 @@ namespace Umbraco.FileSystemPicker.Controllers
                 var root = id == "-1" ? queryStrings.Get("startfolder") : id;
                 if (id == "-1")
                 {
-                    var rootNode = CreateTreeNode(root, "-1", queryStrings, root.TrimStart("/"), "icon-folder", true);
+                    var path = IOHelper.MapPath("~/" + root.TrimStart('~', '/'));
+                    var rootName = new DirectoryInfo(path).Name;
+                    var rootNode = CreateTreeNode(root, "-1", queryStrings, rootName, "icon-folder", true);
                     tempTree.Add(rootNode);
                 }
                 else
@@ -89,8 +92,10 @@ namespace Umbraco.FileSystemPicker.Controllers
 
             var treeNodeCollection = new TreeNodeCollection();
 
+            var startFolderPath = queryStrings.Get("startfolder").TrimStart(new char[] { '~', '/' }).EnsureStartsWith("~/");
+
             IEnumerable<TreeNode> treeNodeList = pickerApiController.GetFolders(parent, filter)
-                .Select(dir => CreateTreeNode(dir.FullName.Replace(IOHelper.MapPath("~"), "").Replace("\\", "/"),
+                .Select(dir => CreateTreeNode(String.Format("{0}{1}", parent, dir.FullName.Replace(IOHelper.MapPath(startFolderPath), "").Replace("\\", "/")),
                     parent, queryStrings, dir.Name,
                     "icon-folder", true));
 

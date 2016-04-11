@@ -50,7 +50,7 @@ namespace Axial.Umbraco.FileSystemPicker.Controllers
 
         public IEnumerable<DirectoryInfo> GetFolders(string folder, string[] filter)
         {
-            var path = IOHelper.MapPath("~/" + folder.TrimStart('~', '/'));
+            var path = IOHelper.MapPath(folder.TrimStart(new char[] { '~', '/' }).EnsureStartsWith("~/"));
 
             return new DirectoryInfo(path).GetDirectories("*");
         }
