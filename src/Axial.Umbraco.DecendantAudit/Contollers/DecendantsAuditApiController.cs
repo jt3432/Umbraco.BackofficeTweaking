@@ -43,7 +43,7 @@ namespace Axial.Umbraco.DecendantsAudit.Controllers
                 var db = DatabaseContext.Database;
                 //var action = db.Query<string>("SELECT a.[comment] FROM (SELECT Max([Datestamp]) as [date],[logComment] as [comment] FROM [umbracoLog] WHERE NodeId = @0 GROUP BY [logComment]) a", child.Id);
 
-                if (String.IsNullOrEmpty(aliases) || aliases.Contains(child.ContentType.Alias))
+                if (String.IsNullOrEmpty(aliases) || aliases == "null" || aliases.Contains(child.ContentType.Alias))
                 {
                     records.Add(new AuditRecordModel()
                     {
