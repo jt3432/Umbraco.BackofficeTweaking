@@ -44,7 +44,7 @@ function fileSystemPickerController($scope, $http, $routeParams, dialogService) 
             var id = $routeParams.id;
             $http.get('/umbraco/backoffice/FileSystemPicker/FileSystemPickerApi/GetStartFolderName/?startFolderNamePropertyAlias=' + escape(alias) + '&removeCharactersPropertyAlias=' + escape(removeChars) + '&currentNodeId=' + id)
                 .then(function (response) {
-                    if (response && response.data && response.data.folderName != null) {
+                    if (response && response.data && response.data.folderName != null && response.data.folderName != '') {
                         startFolder = $scope.model.config.folder + '/' + response.data.folderName;
                     }
 

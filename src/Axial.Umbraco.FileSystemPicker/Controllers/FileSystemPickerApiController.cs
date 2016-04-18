@@ -39,7 +39,7 @@ namespace Axial.Umbraco.FileSystemPicker.Controllers
                 {
                     if (false == string.IsNullOrEmpty(startFolderNamePropertyAlias))
                     {
-                        while (true == string.IsNullOrEmpty(startFolderName) && node.Level > 0)
+                        while (true == string.IsNullOrEmpty(startFolderName) && node != null && node.Level > 0)
                         {
                             if (node.HasProperty(startFolderNamePropertyAlias) && false == string.IsNullOrEmpty(node.GetValue<string>(startFolderNamePropertyAlias)))
                             {

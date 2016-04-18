@@ -213,3 +213,5 @@ ModelManifest.xml
 
 Axial.Umbraco.Cms734/
 src/Axial.Umbraco.Cms742/App_Data/
+/src/Axial.Umbraco.Cms742/App_Browsers
+/src/Axial.Umbraco.Cms742/App_Plugins/FileSystemPicker

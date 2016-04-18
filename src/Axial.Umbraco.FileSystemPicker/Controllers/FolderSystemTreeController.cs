@@ -92,10 +92,12 @@ namespace Umbraco.FileSystemPicker.Controllers
 
             var treeNodeCollection = new TreeNodeCollection();
 
-            var startFolderPath = queryStrings.Get("startfolder").TrimStart(new char[] { '~', '/' }).EnsureStartsWith("~/");
+            var startFolderName = queryStrings.Get("startfolder");
 
-            IEnumerable<TreeNode> treeNodeList = pickerApiController.GetFolders(parent, filter)
-                .Select(dir => CreateTreeNode(String.Format("{0}{1}", parent, dir.FullName.Replace(IOHelper.MapPath(startFolderPath), "").Replace("\\", "/")),
+            var startFolderPath = startFolderName.TrimStart(new char[] { '~', '/' }).EnsureStartsWith("~/");
+
+            IEnumerable <TreeNode> treeNodeList = pickerApiController.GetFolders(parent, filter)
+                .Select(dir => CreateTreeNode(String.Format("{0}{1}", startFolderName, dir.FullName.Replace(IOHelper.MapPath(startFolderPath), "").Replace("\\", "/")),
                     parent, queryStrings, dir.Name,
                     "icon-folder", true));
 
