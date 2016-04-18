@@ -32,10 +32,15 @@ function fileSystemPickerController($scope, $http, $routeParams, dialogService) 
     $scope.openPicker = function () {
 
         var startFolder = $scope.model.config.folder;
+        var alias = '';
+        var removeChars = '';
 
         if ($scope.model.config.startFolderNamePropertyAlias) {
-            var alias = $scope.model.config.startFolderNamePropertyAlias;
-            var removeChars = $scope.model.config.removeCharactersPropertyAlias;
+            alias = $scope.model.config.startFolderNamePropertyAlias;
+        }
+        if ($scope.model.config.removeCharactersPropertyAlias) {
+            removeChars = $scope.model.config.removeCharactersPropertyAlias;
+        }
             var id = $routeParams.id;
             $http.get('/umbraco/backoffice/FileSystemPicker/FileSystemPickerApi/GetStartFolderName/?startFolderNamePropertyAlias=' + escape(alias) + '&removeCharactersPropertyAlias=' + escape(removeChars) + '&currentNodeId=' + id)
                 .then(function (response) {
@@ -56,7 +61,6 @@ function fileSystemPickerController($scope, $http, $routeParams, dialogService) 
                 }, function (data) {
                     $log.error(data)
                 });
-        }
     };
 
     //a method to update the model by adding a blank item
@@ -72,6 +76,7 @@ function fileSystemPickerController($scope, $http, $routeParams, dialogService) 
         var $emptyInput = $('input[id*=mapCoordinates]').filter(function () { return !this.value; });
 
         $emptyInput.val(left + ',' + top);
+        //$emptyInput.trigger('input[id*=mapCoordinates]');
     }
 
     $scope.remove = function () {

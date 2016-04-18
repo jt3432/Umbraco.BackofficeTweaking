@@ -29,28 +29,37 @@ namespace Umbraco.FileSystemPicker.Controllers
             {
                 if (File.Exists(System.Web.Hosting.HostingEnvironment.MapPath(imagePath)))
                 {
-                    using (var image = Image.FromFile(System.Web.Hosting.HostingEnvironment.MapPath(imagePath)))
+                    FileInfo fileInfo = new FileInfo(System.Web.Hosting.HostingEnvironment.MapPath(imagePath));
+
+                    if (fileInfo.Extension.ToLower() == ".jpg" || fileInfo.Extension.ToLower() == ".gif" || fileInfo.Extension.ToLower() == ".png")
                     {
-                        MemoryStream outStream = new MemoryStream();
+                        using (var image = Image.FromFile(System.Web.Hosting.HostingEnvironment.MapPath(imagePath)))
+                        {
+                            MemoryStream outStream = new MemoryStream();
 
-                        byte[] photoBytes = File.ReadAllBytes(System.Web.Hosting.HostingEnvironment.MapPath(imagePath)); // change imagePath with a valid image path
-                        ISupportedImageFormat format = new JpegFormat { Quality = 70 }; // convert to jpg
+                            byte[] photoBytes = File.ReadAllBytes(System.Web.Hosting.HostingEnvironment.MapPath(imagePath)); // change imagePath with a valid image path
+                            ISupportedImageFormat format = new JpegFormat { Quality = 70 }; // convert to jpg
 
-                        var inStream = new MemoryStream(photoBytes);
+                            var inStream = new MemoryStream(photoBytes);
 
-                        var imageFactory = new ImageFactory(preserveExifData: true);
+                            var imageFactory = new ImageFactory(preserveExifData: true);
 
-                        Size size = ResizeKeepAspect(image.Size, imageWidth, imageWidth);
+                            Size size = ResizeKeepAspect(image.Size, imageWidth, imageWidth);
 
-                        ResizeLayer resizeLayer = new ResizeLayer(size, ResizeMode.Max);
-                        imageFactory.Load(inStream)
-                                .Resize(resizeLayer)
-                                .Format(format)
-                                .Save(outStream);
-                        HttpResponseMessage response = new HttpResponseMessage(HttpStatusCode.OK);
-                        response.Content = new StreamContent(outStream);
-                        response.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("image/png");
-                        return response;
+                            ResizeLayer resizeLayer = new ResizeLayer(size, ResizeMode.Max);
+                            imageFactory.Load(inStream)
+                                    .Resize(resizeLayer)
+                                    .Format(format)
+                                    .Save(outStream);
+                            HttpResponseMessage response = new HttpResponseMessage(HttpStatusCode.OK);
+                            response.Content = new StreamContent(outStream);
+                            response.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("image/png");
+                            return response;
+                        }
+                    }
+                    else
+                    {
+                        return new HttpResponseMessage(HttpStatusCode.OK);
                     }
                 }   
                 else

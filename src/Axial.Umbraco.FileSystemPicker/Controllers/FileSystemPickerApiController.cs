@@ -28,7 +28,7 @@ namespace Axial.Umbraco.FileSystemPicker.Controllers
     {
         public object GetStartFolderName(string currentNodeId, string startFolderNamePropertyAlias, string removeCharactersPropertyAlias)
         {
-            var startFoolderName = String.Empty;
+            var startFolderName = String.Empty;
             var contentService = Services.ContentService;
 
             int id = 0;
@@ -37,15 +37,28 @@ namespace Axial.Umbraco.FileSystemPicker.Controllers
                 var node = contentService.GetById(id);
                 if (node != null)
                 {
-                    startFoolderName = node.GetValue<string>(startFolderNamePropertyAlias);
-
-                    if (false == string.IsNullOrWhiteSpace(startFoolderName) && false == string.IsNullOrWhiteSpace(removeCharactersPropertyAlias))
+                    if (false == string.IsNullOrEmpty(startFolderNamePropertyAlias))
                     {
-                        startFoolderName = Regex.Replace(startFoolderName, removeCharactersPropertyAlias, "");
+                        while (true == string.IsNullOrEmpty(startFolderName) && node.Level > 0)
+                        {
+                            if (node.HasProperty(startFolderNamePropertyAlias) && false == string.IsNullOrEmpty(node.GetValue<string>(startFolderNamePropertyAlias)))
+                            {
+                                startFolderName = node.GetValue<string>(startFolderNamePropertyAlias);
+                            }
+                            else
+                            {
+                                node = contentService.GetById(node.ParentId);
+                            }
+                        }
+
+                        if (false == string.IsNullOrWhiteSpace(startFolderName) && false == string.IsNullOrWhiteSpace(removeCharactersPropertyAlias))
+                        {
+                            startFolderName = Regex.Replace(startFolderName, removeCharactersPropertyAlias, "");
+                        }
                     }
                 }
             }
-            return new { folderName = startFoolderName };
+            return new { folderName = startFolderName };
         }
 
         public IEnumerable<DirectoryInfo> GetFolders(string folder, string[] filter)
