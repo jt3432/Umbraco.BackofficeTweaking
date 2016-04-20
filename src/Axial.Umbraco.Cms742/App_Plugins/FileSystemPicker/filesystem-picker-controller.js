@@ -27,7 +27,7 @@ function folderSystemPickerDialogController($scope, dialogService) {
 angular.module('umbraco').controller('Umbraco.FolderSystemPickerDialogController', folderSystemPickerDialogController);
 
 
-function fileSystemPickerController($scope, $http, $routeParams, dialogService) {
+function fileSystemPickerController($scope, $http, $routeParams, $timeout, dialogService) {
 
     $scope.openPicker = function () {
 
@@ -79,7 +79,32 @@ function fileSystemPickerController($scope, $http, $routeParams, dialogService) 
     };
 
     function populate(data) {
+
         $scope.model.value = data;
+
+        $scope.imageWidth = 0;
+        $scope.imageHeight = 0;
+
+        var $img = $('<img />');
+        $img.on('load', function () {
+
+            var img = this;
+
+            $timeout(function () {
+                $scope.imageWidth = img.width;
+                $scope.imageHeight = img.height;
+
+                var checkWidth = $scope.model.config.checkImageWidth == null ? 0 : parseInt($scope.model.config.checkImageWidth);
+                var checkHeight = $scope.model.config.checkImageHeight == null ? 0 : parseInt($scope.model.config.checkImageHeight);
+
+                if (img.width != checkWidth && img.height != checkHeight) {
+                    $scope.imageSizeError = true;
+                    $scope.imageSizeErrorMessage = 'The selected image does not fit the recommend image size of ' + checkWidth + 'px x ' + checkHeight + 'px';
+                }
+            }, 0);
+
+        });
+        $img.attr('src', data);
     };
 };
 angular.module('umbraco').controller('Umbraco.FileSystemPickerController', fileSystemPickerController);
@@ -104,7 +129,7 @@ function fileSystemPickerDialogController($rootScope, $scope, $log, dialogServic
     function nodeSelectHandler(ev, args) {
         args.event.preventDefault();
         args.event.stopPropagation();
-        if (args.node.icon !== 'icon-folder' && !args.node.metaData.managementMode) {
+        if (args.node.icon !== 'icon-folder' && args.node.metaData.managementMode == "0") {
             $scope.submit(args.node.id);
         }
     };

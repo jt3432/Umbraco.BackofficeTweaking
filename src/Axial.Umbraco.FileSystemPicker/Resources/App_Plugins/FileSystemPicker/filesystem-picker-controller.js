@@ -27,24 +27,19 @@ function folderSystemPickerDialogController($scope, dialogService) {
 angular.module('umbraco').controller('Umbraco.FolderSystemPickerDialogController', folderSystemPickerDialogController);
 
 
-function fileSystemPickerController($scope, $http, $routeParams, dialogService) {
+function fileSystemPickerController($scope, $http, $routeParams, $timeout, dialogService) {
 
     $scope.openPicker = function () {
 
         var startFolder = $scope.model.config.folder;
-        var alias = '';
-        var removeChars = '';
 
         if ($scope.model.config.startFolderNamePropertyAlias) {
-            alias = $scope.model.config.startFolderNamePropertyAlias;
-        }
-        if ($scope.model.config.removeCharactersPropertyAlias) {
-            removeChars = $scope.model.config.removeCharactersPropertyAlias;
-        }
+            var alias = $scope.model.config.startFolderNamePropertyAlias;
+            var removeChars = $scope.model.config.removeCharactersPropertyAlias;
             var id = $routeParams.id;
             $http.get('/umbraco/backoffice/FileSystemPicker/FileSystemPickerApi/GetStartFolderName/?startFolderNamePropertyAlias=' + escape(alias) + '&removeCharactersPropertyAlias=' + escape(removeChars) + '&currentNodeId=' + id)
                 .then(function (response) {
-                    if (response && response.data && response.data.folderName != null && response.data.folderName != '') {
+                    if (response && response.data && response.data.folderName != null) {
                         startFolder = $scope.model.config.folder + '/' + response.data.folderName;
                     }
 
@@ -61,6 +56,7 @@ function fileSystemPickerController($scope, $http, $routeParams, dialogService) 
                 }, function (data) {
                     $log.error(data)
                 });
+        }
     };
 
     //a method to update the model by adding a blank item
@@ -76,7 +72,6 @@ function fileSystemPickerController($scope, $http, $routeParams, dialogService) 
         var $emptyInput = $('input[id*=mapCoordinates]').filter(function () { return !this.value; });
 
         $emptyInput.val(left + ',' + top);
-        //$emptyInput.trigger('input[id*=mapCoordinates]');
     }
 
     $scope.remove = function () {
@@ -84,7 +79,32 @@ function fileSystemPickerController($scope, $http, $routeParams, dialogService) 
     };
 
     function populate(data) {
+
         $scope.model.value = data;
+
+        $scope.imageWidth = 0;
+        $scope.imageHeight = 0;
+
+        var $img = $('<img />');
+        $img.on('load', function () {
+
+            var img = this;
+
+            $timeout(function () {
+                $scope.imageWidth = img.width;
+                $scope.imageHeight = img.height;
+
+                var checkWidth = $scope.model.config.checkImageWidth == null ? 0 : parseInt($scope.model.config.checkImageWidth);
+                var checkHeight = $scope.model.config.checkImageHeight == null ? 0 : parseInt($scope.model.config.checkImageHeight);
+
+                if (img.width != checkWidth && img.height != checkHeight) {
+                    $scope.imageSizeError = true;
+                    $scope.imageSizeErrorMessage = 'The selected image does not fit the recommend image size of ' + checkWidth + 'px x ' + checkHeight + 'px';
+                }
+            }, 0);
+
+        });
+        $img.attr('src', data);
     };
 };
 angular.module('umbraco').controller('Umbraco.FileSystemPickerController', fileSystemPickerController);
@@ -109,7 +129,7 @@ function fileSystemPickerDialogController($rootScope, $scope, $log, dialogServic
     function nodeSelectHandler(ev, args) {
         args.event.preventDefault();
         args.event.stopPropagation();
-        if (args.node.icon !== 'icon-folder' && !args.node.metaData.managementMode) {
+        if (args.node.icon !== 'icon-folder' && args.node.metaData.managementMode == "0") {
             $scope.submit(args.node.id);
         }
     };

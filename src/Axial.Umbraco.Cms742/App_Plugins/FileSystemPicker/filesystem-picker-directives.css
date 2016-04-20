@@ -1,3 +1,7 @@
 ﻿.fs-click {
     display: block !important;
 }
+
+.error {
+    color: #ff0000;
+}
