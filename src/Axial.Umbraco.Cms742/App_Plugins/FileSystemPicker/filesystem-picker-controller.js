@@ -97,7 +97,7 @@ function fileSystemPickerController($scope, $http, $routeParams, $timeout, dialo
                 var checkWidth = $scope.model.config.checkImageWidth == null ? 0 : parseInt($scope.model.config.checkImageWidth);
                 var checkHeight = $scope.model.config.checkImageHeight == null ? 0 : parseInt($scope.model.config.checkImageHeight);
 
-                if (img.width != checkWidth && img.height != checkHeight) {
+                if (checkWidth > 0 && checkHeight > 0 && (img.width != checkWidth || img.height != checkHeight)) {
                     $scope.imageSizeError = true;
                     $scope.imageSizeErrorMessage = 'The selected image does not fit the recommend image size of ' + checkWidth + 'px x ' + checkHeight + 'px';
                 }
