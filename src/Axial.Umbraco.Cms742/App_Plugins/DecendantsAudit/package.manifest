@@ -1,0 +1,33 @@
+﻿{
+	propertyEditors: [
+        {
+            alias: "DecendantsAudit",
+            name: "Decendants Audit",
+            editor: {
+                view: "~//App_Plugins/DecendantsAudit/views/decendantsaudit.property.html"
+            },
+            prevalues: {
+                fields: [                    
+					{
+                        label: "Decendant Content Types",
+                        description: "Comma seperated list of content type aliases.",
+                        key: "decendantContentTypes",
+                        view: "textstring"
+                        ]
+                    }
+                ]
+            }
+        }
+    ],
+    javascript: [
+		'~/App_Plugins/DecendantsAudit/decendantsaudit.resource.js',		
+		'~/App_Plugins/DecendantsAudit/controllers/decendantsaudit.config.controller.js',
+		'~/App_Plugins/DecendantsAudit/controllers/decendantsaudit.property.controller.js'
+		'~/App_Plugins/DecendantsAudit/vendors/jquery.treetable.js'
+    ],
+
+    css: [
+		"~/App_Plugins/DecendantsAudit/decendantsaudit.css"
+    ]
+
+}
