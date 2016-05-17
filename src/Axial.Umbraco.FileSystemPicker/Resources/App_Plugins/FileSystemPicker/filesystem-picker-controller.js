@@ -129,7 +129,7 @@ function fileSystemPickerDialogController($rootScope, $scope, $log, dialogServic
     function nodeSelectHandler(ev, args) {
         args.event.preventDefault();
         args.event.stopPropagation();
-        if (args.node.icon !== 'icon-folder' && args.node.metaData.managementMode == "0") {
+        if (args.node.icon !== 'icon-folder' && (args.node.metaData.managementMode == "0" || args.node.metaData.managementMode == "")) {
             $scope.submit(args.node.id);
         }
     };
