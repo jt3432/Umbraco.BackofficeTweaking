@@ -1,0 +1,22 @@
+﻿<div ng-controller="DecendantsAudit.Property.Controller">
+    <table class="decendants-audit-table" border="1">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Created By</th>
+                <th>Created On</th>
+                <th>Modified By</th>
+                <th>Modified On</th>
+                <!--<th>Action</th>-->
+            </tr>
+        </thead>
+        <tr data-tt-id="{{record.Id}}" data-tt-parent-id="{{record.ParentId}}" ng-repeat="record in records">
+            <td><a href="#/content/content/edit/{{record.Id}}">{{record.Name}}</a></td>
+            <td>{{record.CreatedBy}}</td>
+            <td>{{record.CreatedDate}}</td>
+            <td>{{record.ModifiedBy}}</td>
+            <td>{{record.ModifiedDate}}</td>
+            <!--<td>{{record.Action}}</td>-->
+        </tr>
+    </table>
+</div>
