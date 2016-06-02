@@ -13,7 +13,7 @@
                 <img id="usda-map-image" src="{{model.value}}" ng-click="clickMap($event)" style="cursor: crosshair;" />
             </div>
         </li>
-        <li>
+        <li ng-show="showImageInfo">
             <small>Image Size: {{imageWidth}}px x {{imageHeight}}px</small>
         </li>
         <li>
