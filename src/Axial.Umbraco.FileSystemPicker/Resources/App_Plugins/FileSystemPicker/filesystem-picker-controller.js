@@ -82,6 +82,7 @@ function fileSystemPickerController($scope, $http, $routeParams, $timeout, dialo
 
         $scope.model.value = data;
 
+        $scope.showImageInfo = false;
         $scope.imageWidth = 0;
         $scope.imageHeight = 0;
 
@@ -100,6 +101,10 @@ function fileSystemPickerController($scope, $http, $routeParams, $timeout, dialo
                 if (checkWidth > 0 && checkHeight > 0 && (img.width != checkWidth || img.height != checkHeight)) {
                     $scope.imageSizeError = true;
                     $scope.imageSizeErrorMessage = 'The selected image does not fit the recommend image size of ' + checkWidth + 'px x ' + checkHeight + 'px';
+                }
+
+                if (img.width != null && img.width != '') {
+                    $scope.showImageInfo = true;
                 }
             }, 0);
 
@@ -129,7 +134,7 @@ function fileSystemPickerDialogController($rootScope, $scope, $log, dialogServic
     function nodeSelectHandler(ev, args) {
         args.event.preventDefault();
         args.event.stopPropagation();
-        if (args.node.icon !== 'icon-folder' && args.node.metaData.managementMode == "0") {
+        if (args.node.icon !== 'icon-folder' && (args.node.metaData.managementMode == "0" || args.node.metaData.managementMode == "")) {
             $scope.submit(args.node.id);
         }
     };

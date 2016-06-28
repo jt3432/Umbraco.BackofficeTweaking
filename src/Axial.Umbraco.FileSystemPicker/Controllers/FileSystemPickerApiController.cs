@@ -228,9 +228,11 @@ namespace Axial.Umbraco.FileSystemPicker.Controllers
 
             var startFolder = System.Configuration.ConfigurationManager.AppSettings["Axial:FileSystemPicker:startFolder"];
             var startFolderNamePropertyAlias = System.Configuration.ConfigurationManager.AppSettings["Axial:FileSystemPicker:startFolderNamePropertyAlias"];
+            var removeCharactersPropertyAlias = System.Configuration.ConfigurationManager.AppSettings["Axial:FileSystemPicker:removeCharactersPropertyAlias"];
 
             config.Add("startFolder", startFolder);
             config.Add("startFolderNamePropertyAlias", startFolderNamePropertyAlias);
+            config.Add("removeCharactersPropertyAlias", removeCharactersPropertyAlias);
 
             return config;
         }
