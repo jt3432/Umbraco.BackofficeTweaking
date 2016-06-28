@@ -295,6 +295,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\Umbraco.sdf" />
     <Content Include="App_Plugins\DecendantsAudit\controllers\decendantsaudit\config\controller.js" />
     <Content Include="App_Plugins\DecendantsAudit\controllers\decendantsaudit\property\controller.js" />
     <Content Include="App_Plugins\DecendantsAudit\decendantsaudit.css" />
@@ -387,7 +388,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="Controllers\" />
     <Folder Include="images\" />
     <Folder Include="js\" />
