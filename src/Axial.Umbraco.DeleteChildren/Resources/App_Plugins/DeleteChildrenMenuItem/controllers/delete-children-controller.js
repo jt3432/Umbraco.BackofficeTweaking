@@ -9,8 +9,7 @@
             if (response.data) {
                 treeService.removeChildNodes($scope.currentNode);
                 navigationService.hideDialog();
-            }
-            else {
+            } else {
                 $scope.message = 'The was a problem deleting child nodes. Please review the Umbraco logs for more information.';
                 $scope.showMessage = true;
                 $log.error($scope.message);

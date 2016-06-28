@@ -4,7 +4,7 @@
             alias: "DecendantsAudit",
             name: "Decendants Audit",
             editor: {
-                view: "~//App_Plugins/DecendantsAudit/views/decendantsaudit.property.html"
+                view: "~//App_Plugins/DecendantsAudit/views/decendantsaudit-property.html"
             },
             prevalues: {
                 fields: [                    
@@ -20,10 +20,10 @@
         }
     ],
     javascript: [
-		'~/App_Plugins/DecendantsAudit/decendantsaudit.resource.js',		
-		'~/App_Plugins/DecendantsAudit/controllers/decendantsaudit.config.controller.js',
-		'~/App_Plugins/DecendantsAudit/controllers/decendantsaudit.property.controller.js'
-		'~/App_Plugins/DecendantsAudit/vendors/jquery.treetable.js'
+		'~/App_Plugins/DecendantsAudit/decendantsaudit-resource.js',		
+		'~/App_Plugins/DecendantsAudit/controllers/decendantsaudit-config-controller.js',
+		'~/App_Plugins/DecendantsAudit/controllers/decendantsaudit-property-controller.js'
+		'~/App_Plugins/DecendantsAudit/vendors/jquery-treetable.js'
     ],
 
     css: [

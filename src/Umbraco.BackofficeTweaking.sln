@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Axial.Umbraco.PropertyAccess", "Axial.Umbraco.BackofficeTweaking\Axial.Umbraco.PropertyAccess.csproj", "{EB167299-B9C9-463F-95B6-E41BFE29F08A}"
 EndProject
@@ -16,6 +16,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Axial.Umbraco.DeleteChildren", "Axial.Umbraco.DeleteChildren\Axial.Umbraco.DeleteChildren.csproj", "{C5A3C91E-84A3-4C16-B77E-017876B01D6D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Axial.Umbraco.Cms742", "Axial.Umbraco.Cms742\Axial.Umbraco.Cms742.csproj", "{7A016C9F-2B06-42E6-A61C-9448EC719D45}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Axial.Umbraco.EncryptedTextbox", "Axial.Umbraco.EncryptedTextBox\Axial.Umbraco.EncryptedTextbox.csproj", "{28CFA1CD-2C36-4D6C-94BE-A459E5A19E64}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{7A016C9F-2B06-42E6-A61C-9448EC719D45}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7A016C9F-2B06-42E6-A61C-9448EC719D45}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7A016C9F-2B06-42E6-A61C-9448EC719D45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28CFA1CD-2C36-4D6C-94BE-A459E5A19E64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28CFA1CD-2C36-4D6C-94BE-A459E5A19E64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28CFA1CD-2C36-4D6C-94BE-A459E5A19E64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28CFA1CD-2C36-4D6C-94BE-A459E5A19E64}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

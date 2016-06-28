@@ -1,0 +1,11 @@
+﻿
+<div ng-controller="Umbraco.EncryptedTextboxController" class="umb-editor">
+    <div class="textbox-wrapper" ng-show="mode == 'password'">
+        <input type="password" id="{{model.alias}}_password" class="umb-editor umb-textstring textstring" ng-model="model.value" />
+        <button type="button" ng-click="show()">Show</button>
+    </div>
+    <div class="textbox-wrapper" ng-show="mode == 'text'">
+        <input type="text" id="{{model.alias}}_text" class="umb-editor umb-textstring textstring" ng-model="model.value" />
+        <button type="button" ng-click="hide()">Hide</button>
+    </div>
+</div>

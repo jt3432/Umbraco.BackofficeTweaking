@@ -295,24 +295,23 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Plugins\DecendantsAudit\controllers\decendantsaudit\config\controller.js" />
+    <Content Include="App_Plugins\DecendantsAudit\controllers\decendantsaudit\property\controller.js" />
+    <Content Include="App_Plugins\DecendantsAudit\decendantsaudit.css" />
+    <Content Include="App_Plugins\DecendantsAudit\decendantsaudit\resource.js" />
+    <Content Include="App_Plugins\DecendantsAudit\vendors\jquery\treetable.css" />
+    <Content Include="App_Plugins\DecendantsAudit\vendors\jquery\treetable.js" />
+    <Content Include="App_Plugins\DecendantsAudit\vendors\jquery\treetable\theme\default.css" />
+    <Content Include="App_Plugins\DecendantsAudit\views\decendantsaudit\config.html" />
+    <Content Include="App_Plugins\DecendantsAudit\views\decendantsaudit\property.html" />
     <Content Include="App_Plugins\DeleteChildrenMenuItem\controllers\delete-children-controller.js" />
     <Content Include="App_Plugins\DeleteChildrenMenuItem\resources\delete-children-resources.js" />
     <Content Include="App_Plugins\DeleteChildrenMenuItem\views\delete-children-confirmation.html" />
-    <Content Include="App_Plugins\FileSystemPicker\filesystem-picker-controller.js" />
-    <Content Include="App_Plugins\FileSystemPicker\filesystem-picker-delete-dialog.html" />
-    <Content Include="App_Plugins\FileSystemPicker\filesystem-picker-dialog.html" />
-    <Content Include="App_Plugins\FileSystemPicker\filesystem-picker-directives.css" />
-    <Content Include="App_Plugins\FileSystemPicker\filesystem-picker-directives.js" />
-    <Content Include="App_Plugins\FileSystemPicker\filesystem-picker-file-upload.html" />
-    <Content Include="App_Plugins\FileSystemPicker\filesystem-picker-newfolder-dialog.html" />
-    <Content Include="App_Plugins\FileSystemPicker\filesystem-picker-options-menu.html" />
-    <Content Include="App_Plugins\FileSystemPicker\filesystem-picker-rename-dialog.html" />
-    <Content Include="App_Plugins\FileSystemPicker\filesystem-picker-upload-dialog.html" />
-    <Content Include="App_Plugins\FileSystemPicker\filesystem-picker.html" />
-    <Content Include="App_Plugins\FileSystemPicker\foldersystem-picker-dialog.html" />
-    <Content Include="App_Plugins\FileSystemPicker\foldersystem-picker-newfolder-dialog.html" />
-    <Content Include="App_Plugins\FileSystemPicker\foldersystem-picker-upload-dialog.html" />
-    <Content Include="App_Plugins\FileSystemPicker\foldersystem-picker.html" />
+    <Content Include="App_Plugins\EncryptedTextbox\controllers\encryptedtextbox-propertyeditor-controller.js" />
+    <Content Include="App_Plugins\EncryptedTextbox\css\encryptedtextbox.css" />
+    <Content Include="App_Plugins\EncryptedTextbox\directives\encryptedtextbox-propertyeditor-directives.js" />
+    <Content Include="App_Plugins\EncryptedTextbox\resources\encryptedtextbox-propertyeditor-resources.js" />
+    <Content Include="App_Plugins\EncryptedTextbox\views\encryptedtextbox-propertyeditor.html" />
     <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.controller.js" />
     <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.htm" />
     <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.resource.js" />
@@ -337,6 +336,8 @@
     <Content Include="Config\Lang\zh-CN.user.xml" />
     <Content Include="default.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="Umbraco\lib\jquery-ui\jquery-ui-1.10.4.custom.min.css" />
+    <Content Include="Umbraco\lib\jquery-ui\jquery-ui.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -376,6 +377,8 @@
     <Content Include="Config\applications.config" />
     <Content Include="Config\404handlers.config" />
     <Content Include="App_Plugins\DeleteChildrenMenuItem\package.manifest" />
+    <Content Include="App_Plugins\DecendantsAudit\package.manifest" />
+    <Content Include="App_Plugins\EncryptedTextbox\package.manifest" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -387,6 +390,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Controllers\" />
     <Folder Include="images\" />
+    <Folder Include="js\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
@@ -405,6 +409,10 @@
     <ProjectReference Include="..\Axial.Umbraco.DeleteChildren\Axial.Umbraco.DeleteChildren.csproj">
       <Project>{c5a3c91e-84a3-4c16-b77e-017876b01d6d}</Project>
       <Name>Axial.Umbraco.DeleteChildren</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Axial.Umbraco.EncryptedTextBox\Axial.Umbraco.EncryptedTextbox.csproj">
+      <Project>{28cfa1cd-2c36-4d6c-94be-a459e5a19e64}</Project>
+      <Name>Axial.Umbraco.EncryptedTextbox</Name>
     </ProjectReference>
     <ProjectReference Include="..\Axial.Umbraco.FileSystemPicker\Axial.Umbraco.FileSystemPicker.csproj">
       <Project>{c0318ac1-1532-49a6-9828-13f99e722431}</Project>

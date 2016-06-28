@@ -1,0 +1,39 @@
+﻿{
+	propertyEditors: [
+        {
+            alias: "Axial.Umbraco.EncryptedTextbox",
+            name: "Encrypted Textbox",
+			icon: "icon-key",
+            editor: {
+                view: "~/App_Plugins/EncryptedTextbox/views/encryptedtextbox-propertyeditor.html"
+            },
+			prevalues: {
+                fields: [                    
+					{
+                        label: "Encrypt Endpoint",
+                        description: "URL to an endpoint to encrypt the value.",
+                        key: "encryptEndpoint",
+                        view: "textstring"
+                    },
+					{
+                        label: "Decrypt Endpoint",
+                        description: "URL to an endpoint to decrypt the value.",
+                        key: "decryptEndpoint",
+                        view: "textstring"
+                    }
+                ]
+            },
+			defaultConfig: {
+				encryptEndpoint: "/umbraco/EncryptedTextbox/EncryptedTextboxApi/Encrypt/",
+				decryptEndpoint: "/umbraco/EncryptedTextbox/EncryptedTextboxApi/Decrypt/",
+			}
+        }
+    ],
+	javascript: [		
+		'~/App_Plugins/EncryptedTextbox/resources/encryptedtextbox-propertyeditor-resources.js',
+		'~/App_Plugins/EncryptedTextbox/controllers/encryptedtextbox-propertyeditor-controller.js'	
+	],
+	css: [
+		'~/App_Plugins/EncryptedTextbox/css/encryptedtextbox.css'
+	]
+}

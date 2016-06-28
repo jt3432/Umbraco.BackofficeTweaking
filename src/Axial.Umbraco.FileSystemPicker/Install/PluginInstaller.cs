@@ -10,7 +10,7 @@ namespace Axial.Umbraco.FileSystemPicker.Install
         #region Constants
 
         private const string APP_VERSION_KEY = "FileSystemPicker:Version";
-        private const string APP_VERSION_VALUE = "1.1";
+        private const string APP_VERSION_VALUE = "1.3";
 
         #endregion
 
