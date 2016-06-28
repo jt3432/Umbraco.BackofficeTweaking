@@ -19,6 +19,7 @@ x64/
 x86/
 build/
 bld/
+bld/
 [Bb]in/
 [Oo]bj/
 
@@ -75,7 +76,7 @@ ipch/
 *.aps
 *.ncb
 *.opensdf
-*.sdf
+# *.sdf
 *.cachefile
 
 # Visual Studio profiler
